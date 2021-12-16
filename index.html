@@ -23,45 +23,33 @@ body {
           <a class="active" href="#home">Accueil</a>
           <a href="#news">News</a>
           <a href="#contact">Contact</a>
-        </div> 
+        </div>
 
         <div class="main">
 
-          <div class="hellotext">
+          <div class="hellotext" onload=display_ct();>
             <h1>Bienvenue sur ProMétéo&#174;</h1>
-            <p>Nous sommes le <span id="date"></span> et il est actuellement <span id="time"></span></p>
+            <p>Nous sommes le <span id='ct' ></span> et il est actuellement <span id='cd' ></span></p>
             <p>La température extérieure est de 6°C, et il fait nuageux.</p>
           </div>
 
-          
-          <script type="text/javascript"> 
-            function display_c(){
-              var refresh=1000; // Refresh rate in milli seconds
-              mytime=setTimeout('display_ct()',refresh)
-              }
-              
-              function display_ct() {
-                  var x = new Date()
-                  var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-                  document.getElementById("date").innerHTML = x1;
-                  display_ct();
-                   }
-            </script>
 
-            <script>
-            function display_c(){
-              var refresh=1000; // Refresh rate in milli seconds
-              mytime=setTimeout('display_ct()',refresh)
-              }
-              
-              function display_ct() {
-                  var x = new Date()
-                  var x1=x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-                  document.getElementById('time').innerHTML = x1;
-                  display_c();
-                   }
-            </script>
-          
+        <script type="text/javascript">
+        function display_c(){
+        var refresh=1000; // Refresh rate in milli seconds
+        mytime=setTimeout('display_ct()',refresh)
+        }
+
+        function display_ct() {
+          var x = new Date()
+          var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear();
+          var x2=x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+          document.getElementById('ct').innerHTML = x1;
+          document.getElementById('cd').innerHTML = x2;
+        display_c();
+         }
+        </script>
+
 
           <body onload=display_ct();>
           <span id='ct'></span>
@@ -91,7 +79,7 @@ body {
             <i class="fa fa-lock" aria-hidden="true"></i>
           </span>
         </div>
-        
+
         <div class="container-login100-form-btn">
           <button class="login100-form-btn">
             Connexion
